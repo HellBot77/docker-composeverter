@@ -15,7 +15,6 @@ RUN cd packages/composeverter-website && \
     export NODE_ENV=production && \
     yarn build
 
-FROM pierrezemb/gostatic
+FROM lipanski/docker-static-website
 
-COPY --from=build /composeverter/packages/composeverter-website/build /srv/http
-EXPOSE 8043
+COPY --from=build /composeverter/packages/composeverter-website/build .
